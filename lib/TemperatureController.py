@@ -10,7 +10,7 @@ class TemperatureSensor:
         self.mapper = data_mapper.DataMapper(sensor_max=125, sensor_min=-40)
         self.temp_sensor = hdc1080.HDC1080(self.i2c)
 
-    def read_temperature(self):
+    def read_temperature(self) -> int:
         temp_c = self.temp_sensor.read_temperature(celsius=True)
         print('temp C', temp_c)
         print('temp F', (temp_c * 9/5 + 32))
